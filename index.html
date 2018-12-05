@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time in Color</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+    <style>
+        #time {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            font-size: 7.5rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 100;
+            color: #fff;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+<div id="time"></div>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+    function refreshData() {
+        var date = new Date()
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+
+        if (hours <= 9) {
+            hours = '0' + hours;
+        };
+
+        if (minutes <= 9) {
+            minutes = '0' + minutes;
+        };
+
+        if (seconds <= 9) {
+            seconds = '0' + seconds;
+        };
+
+        var color = '#' + hours + minutes + seconds;
+
+        $("body").css("background-color", '#' + hours + minutes + seconds);
+        $("#time").text(hours + ':' + minutes + ':' + seconds);
+
+        setTimeout(refreshData, 1000);
+    }
+
+    refreshData();
+</script>
+</body>
+</html>
