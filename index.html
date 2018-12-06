@@ -41,9 +41,9 @@
             seconds = '0' + seconds;
         };
 
-        var color = '#' + hours + minutes + seconds;
+        var backgroundColor = '#' + hours + minutes + seconds;
 
-        $("body").css("background-color", '#' + hours + minutes + seconds);
+        $("body").css("background-color", backgroundColor);
         $("#time").text(hours + ':' + minutes + ':' + seconds);
 
         setTimeout(refreshData, 1000);
